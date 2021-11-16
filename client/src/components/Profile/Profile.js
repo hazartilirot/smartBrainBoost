@@ -12,7 +12,7 @@ class Profile extends Component {
   }
 
   onProfileUpdate = (data) => {
-    fetch(`http://localhost:5000/profile/${this.props.user.id}`, {
+    fetch(`http://${process.env.REACT_APP_BE_SERVER_HOST}:${process.env.REACT_APP_BE_SERVER_PORT}/profile/${this.props.user.id}`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

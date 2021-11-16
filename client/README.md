@@ -8,9 +8,20 @@
 8. Execute `npm run dev` in the root to run server with client concurrently.
 9. Configure environment variables in .env file, add [Clarifai] API (https://www.clarifai.com/)
 
+The list of variables to configure:
+
+SERVER SIDE: 
+
 DB_HOST
 DB_USER
 DB_PASS
 DB_PORT
-SERVER_PORT
+BE_SERVER_HOST
+BE_SERVER_PORT
+REDIS_HOST
 CLARIFAI_API
+
+CLIENT SIDE:
+
+REACT_APP_BE_SERVER_HOST
+REACT_APP_BE_SERVER_PORT

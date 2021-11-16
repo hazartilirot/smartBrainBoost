@@ -51,7 +51,7 @@ class App extends Component {
   componentDidMount() {
     const token = window.sessionStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:5000/signin', {
+      fetch(`http://${process.env.REACT_APP_BE_SERVER_HOST}:${process.env.REACT_APP_BE_SERVER_PORT}/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ class App extends Component {
         .then(response => response.json())
         .then(data => {
           if (data && data.id) {
-            fetch(`http://localhost:5000/profile/${data.id}`, {
+            fetch(`http://${process.env.REACT_APP_BE_SERVER_HOST}:${process.env.REACT_APP_BE_SERVER_PORT}/profile/${data.id}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:5000/imageurl', {
+      fetch(`http://${process.env.REACT_APP_BE_SERVER_HOST}:${process.env.REACT_APP_BE_SERVER_PORT}/imageurl`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:5000/image', {
+          fetch(`http://${process.env.REACT_APP_BE_SERVER_HOST}:${process.env.REACT_APP_BE_SERVER_PORT}/image`, {
             method: 'put',
             headers: {
               'Content-Type': 'application/json',
